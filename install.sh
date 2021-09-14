@@ -4,6 +4,7 @@ sudo apt update
 sudo apt install vim
 
 sudo curl -sL install-node.now.sh/lts | bash
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # install fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
@@ -16,6 +17,9 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 
 
 ####### MAIN #######
+
+# GDB
+cp ~/.dotfiles/gdb/.gdbinit ~/.gdbinit
 
 # Zsh
 ln -sf ~/.dotfiles/zsh/.zshrc ~/.zshrc
