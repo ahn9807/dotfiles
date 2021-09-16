@@ -2,6 +2,8 @@
 sudo add-apt-repository ppa:jonathonf/vim
 sudo apt update
 sudo apt install vim
+sudo apt install zsh
+sudo apt install ripgrep
 
 sudo curl -sL install-node.now.sh/lts | bash
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
