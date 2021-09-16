@@ -1,6 +1,8 @@
 # Install Pacakges
 sudo add-apt-repository ppa:jonathonf/vim
 sudo apt update
+sudo apt install build-essential
+sudo apt install gdb
 sudo apt install vim
 sudo apt install zsh
 sudo apt install ripgrep
