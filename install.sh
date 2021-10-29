@@ -1,9 +1,14 @@
 # Install Pacakges
 sudo add-apt-repository ppa:jonathonf/vim
 sudo apt update
+sudo apt install build-essential
+sudo apt install gdb
 sudo apt install vim
+sudo apt install zsh
+sudo apt install ripgrep
 
 sudo curl -sL install-node.now.sh/lts | bash
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # install fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
@@ -16,6 +21,9 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 
 
 ####### MAIN #######
+
+# GDB
+cp ~/.dotfiles/gdb/.gdbinit ~/.gdbinit
 
 # Zsh
 ln -sf ~/.dotfiles/zsh/.zshrc ~/.zshrc
