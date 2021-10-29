@@ -5,13 +5,28 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'majutsushi/tagbar'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()            " required
 
+" For airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline_theme='hybrid'
+let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#tabline#buffer_nr_format = '%s:'
+
+set hidden
+
+" For NerdTree
 nnoremap <C-S-e> :call ToggleNERDTreeFind()<CR>
-nmap <F8> :TagbarToggle<CR>
 let NERDTreeIgnore = ['\.pyc$', '\.o$']
 
+" For Tag
+nmap <F8> :TagbarToggle<CR>
+
+" For fzf
 let $FZF_DEFAULT_OPTS = "--bind alt-k:preview-up,alt-j:preview-down"
 command! -bang -nargs=? -complete=dir Files
     \ call fzf#vim#files(<q-args>, {'options': ['--layout=reverse', '--info=inline', '--preview', '~/.vim/plugged/fzf.vim/bin/preview.sh {}']}, <bang>0)
@@ -19,6 +34,11 @@ command! -bang -nargs=? -complete=dir Files
 	let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 	noremap <c-p> :Files<CR>
 
+if filereadable("./cscope.out")
+	cs add cscope.out
+endif
+
+" For coc.nvim
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
 " unicode characters in the file autoload/float.vim
 set encoding=utf-8
@@ -47,6 +67,10 @@ if has("nvim-0.5.0") || has("patch-8.1.1564")
   set signcolumn=number
 else
   set signcolumn=yes
+endif
+
+if filereadable("./cscope.out")
+	cs add cscope.out
 endif
 
 " Use tab for trigger completion with characters ahead and navigate.
@@ -184,9 +208,6 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
-
-
-colorscheme jellybeans
 
 set nu "줄번호
 
