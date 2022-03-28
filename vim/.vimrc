@@ -36,10 +36,6 @@ command! -bang -nargs=? -complete=dir Files
 	let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 	noremap <c-p> :Files<CR>
 
-if filereadable("./cscope.out")
-	cs add cscope.out
-endif
-
 " For coc.nvim
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
 " unicode characters in the file autoload/float.vim
@@ -71,6 +67,7 @@ else
   set signcolumn=yes
 endif
 
+" Enable cscope 
 if filereadable("./cscope.out")
 	cs add cscope.out
 endif

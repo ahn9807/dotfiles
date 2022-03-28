@@ -37,6 +37,11 @@ ln -sf ~/.dotfiles/vim/.vimrc ~/.vimrc
 
 vim +PlugInstall +qall
 
+# NVim
+mkdir -p ~/.config/nvim
+touch ~/.config/nvim/init.vim
+ln -sf ~/.dotfiles/nvim/init.vim ~/.config/nvim/init.vim
+
 # Tmux
 rm -rf ~/.tmux
 ln -sf ~/.dotfiles/tmux ~/.tmux
