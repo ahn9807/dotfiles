@@ -1,12 +1,24 @@
-"languageserver": {
-  "ccls": {
-    "command": "ccls",
-    "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"],
-    "rootPatterns": [".ccls", "compile_commands.json", ".git/", ".hg/"],
-    "initializationOptions": {
+{
+  "languageserver": {
+    "ccls": {
+      "command": "ccls",
+      "filetypes": ["c", "cpp"],
+      "rootPatterns": [".ccls", "compile_commands.json"],
+      "initializationOptions": {
         "cache": {
-          "directory": "/tmp/ccls"
-        }
+          "directory": ".ccls-cache"
+        },
+        "client": {
+          "snippetSupport" : true
+        },
+        "compilationDatabaseDirectory": "./build/"
       }
-  }
+    }
+  },
+  "python.jediEnabled": false,
+  "diagnostic.errorSign": "✖",
+  "diagnostic.hintSign": "➤",
+  "diagnostic.infoSign": "ℹ",
+  "diagnostic.warningSign": "⚠"
 }
+

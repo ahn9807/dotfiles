@@ -8,7 +8,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'majutsushi/tagbar'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'preservim/nerdcommenter'
+Plug 'scrooloose/nerdcommenter'
 Plug 'tomasiser/vim-code-dark'
 
 call plug#end()            " required
@@ -21,6 +21,27 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tabline#buffer_nr_format = '%s:'
 
 set hidden
+
+
+
+" NERD Commenter
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+" Set a language to use its alternate delimiters by default
+let g:NERDAltDelims_java = 1
+" Add your own custom formats or override the defaults
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+" customize keymapping
+map <Leader>cc <plug>NERDComToggleComment
+map <Leader>c<space> <plug>NERDComComment
 
 " For NerdTree
 nnoremap <C-S-e> :call ToggleNERDTreeFind()<CR>
@@ -282,6 +303,9 @@ set ignorecase " 검색시 대소문자 구별 안함
 set ruler " 현재 커서 위치 표시
 set incsearch
 set statusline=\ %<%l:%v\ [%P]%=%a\ %h%m%r\ %F\
+
+set shiftwidth=4
+set ts=4
 " 마지막으로 수정된 곳에 커서를 위치함
 au BufReadPost *
 			\ if line("'\"") > 0 && line("'\"") <= line("$") |
