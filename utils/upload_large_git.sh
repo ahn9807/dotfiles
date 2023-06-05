@@ -1,6 +1,6 @@
 # Adjust the following variables as necessary
 REMOTE=origin
-BRANCH=$(git rev-parse —abbrev-ref HEAD)
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
 BATCH_SIZE=500
 # check if the branch exists on the remote
 if git show-ref —quiet —verify refs/remotes/$REMOTE/$BRANCH; then
@@ -11,12 +11,12 @@ else
     range=HEAD
 fi
 # count the number of commits to push
-n=$(git log —first-parent —format=format:x $range | wc -l)
+n=$(git log --first-parent --format=format:x $range | wc -l)
 max_iter=$(echo "$n/$BATCH_SIZE+1" | bc)
 # push each batch
 for i in $(seq $n -$BATCH_SIZE 1); do
     # get the hash of the commit to push
-    h=$(git log —first-parent —reverse —format=format:%H —skip $i -n1)
+    h=$(git log --first-parent --reverse --format=format:%H --skip $i -n1)
     iter=$(echo "($n-$i)/$BATCH_SIZE+1" | bc)
     echo "Pushing $h… ($iter / $max_iter)"
     git push $REMOTE $h:refs/heads/$BRANCH

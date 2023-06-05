@@ -19,7 +19,11 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 # install vim plugin manager
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 		    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
+# install pwndbg
+git clone https://github.com/pwndbg/pwndbg ~/.pwndbg
+~/.pwndbg/setup.sh
+git clone https://github.com/jerdna-regeiz/splitmind ~/.splitmind
+source ~/.splitmind/gdbinit.py
 
 ####### MAIN #######
 

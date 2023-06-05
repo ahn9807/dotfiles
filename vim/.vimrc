@@ -10,6 +10,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tomasiser/vim-code-dark'
+Plug 'davidhalter/jedi-vim'
+Plug 'rust-lang/rust.vim'
 
 call plug#end()            " required
 
